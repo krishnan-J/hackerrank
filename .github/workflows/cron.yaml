@@ -1,0 +1,15 @@
+name: Print IST Time
+
+on:
+  schedule:
+    - cron: '* * * * *'
+  workflow_dispatch:
+
+jobs:
+  print-time:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print current IST time
+        run: |
+          echo "Current IST time: $(TZ='Asia/Kolkata' date '+%Y-%m-%d %H:%M:%S %Z')"
